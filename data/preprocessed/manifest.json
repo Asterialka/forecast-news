@@ -1,0 +1,64 @@
+{
+  "country": "Israel (GDELT FIPS IS; ISO ISR)",
+  "gdelt_version": "1.0 daily Events, 58 columns",
+  "gdelt_url": "https://data.gdeltproject.org/events/{YYYYMMDD}.export.CSV.zip",
+  "gdelt_index": "https://data.gdeltproject.org/events/",
+  "archive_range": [
+    "2021-01-01",
+    "2026-01-11"
+  ],
+  "downloaded_at": [
+    "2026-10-15T17:45:47.842094+00:00",
+    "2026-10-18T09:22:58.998872+00:00"
+  ],
+  "weekly_calendar": "Monday-Sunday; SQLDATE event week; unique GLOBALEVENTID across exports; ActionGeo_CountryCode=IS; roots 18/19",
+  "snapshots": "Rows of count_vintages are origins; columns are event weeks; use only columns <= origin; export_day < origin Monday +7d. Duplicates removed before aggregation.",
+  "news": "Mean AvgTone/GoldsteinScale, std GoldsteinScale, volume, unique domains, root counts: own-week records available by issue; news_volume_change_wow denominator has one-week grace.",
+  "issue": "Following Monday 12:00 UTC, assumed publisher schedule; no started-week archives.",
+  "truth_2024": "All fetched archives through 2025-01-05; CV early truth panel row166, late truth row195.",
+  "missing_exports": [
+    "2022-11-10",
+    "2023-03-23",
+    "2025-06-14",
+    "2025-06-15",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-19",
+    "2025-06-20",
+    "2025-06-21",
+    "2025-06-22",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-06-28",
+    "2025-06-29",
+    "2025-06-30",
+    "2025-07-01"
+  ],
+  "ecb": {
+    "source": "European Central Bank, euro foreign exchange reference rates",
+    "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip",
+    "documentation": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+    "downloaded_at": "2026-10-15T18:35:20.186891+00:00",
+    "archive_sha256": "e691b95610e75f324b3f2552682cc3809490368adadda2a02a398d6e9ca89891",
+    "sha256": "adba17c02530e9af407782d1a209099bf31a6ca9949e4602cdef62e585385dfb",
+    "http_last_modified": "Thu, 15 Oct 2026 13:56:49 GMT",
+    "rows": 4041,
+    "first_date": "2011-01-03",
+    "last_date": "2026-10-15",
+    "unit": "ILS per USD = (ILS per EUR) / (USD per EUR)",
+    "availability_policy": "Use observations dated at least 7 days before issue date.",
+    "revision_limitation": "Current historical snapshot, not original vintages; rare corrections cannot be ruled out."
+  },
+  "files": {
+    "count_vintages.parquet": "ffad453b8a6d61de668d85ffb84f3ee7b068a4888a2683fbc683e0bf8d479726",
+    "ecb_ils.csv": "adba17c02530e9af407782d1a209099bf31a6ca9949e4602cdef62e585385dfb",
+    "news_asof.csv": "03063c115dd260171fd5fc74eae41136407c4e876eb59f2cb84ec044b0587b51",
+    "truth_2024.csv": "aba7ffbe583e80f9efbbc6678cf47010a55d66a25ab2e2db5adebc593b13cdbb",
+    "truth_7d.csv": "c9cf350c18006a0349302ec3a943b384c6eed7559197c0da23df5c018343fa61"
+  },
+  "truth_7d": "Each target week with 7-day grace; own or grace week missing -> NaN."
+}

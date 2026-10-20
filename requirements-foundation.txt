@@ -1,0 +1,8 @@
+-r requirements.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1+cpu
+chronos-forecasting==2.3.2
+timesfm==3.0.2
+transformers==5.18.0
+huggingface-hub==1.33.0
+safetensors==0.8.0

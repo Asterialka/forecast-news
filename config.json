@@ -1,0 +1,238 @@
+{
+  "seed": 42,
+  "count": {
+    "forecast_model": "arima_1_0_0"
+  },
+  "correction": {
+    "objective": "regression",
+    "parameters": {
+      "n_estimators": 80,
+      "learning_rate": 0.04,
+      "max_depth": 3,
+      "num_leaves": 3,
+      "min_child_samples": 10,
+      "reg_lambda": 10.0,
+      "reg_alpha": 0.1,
+      "max_bin": 31,
+      "colsample_bytree": 1.0,
+      "extra_trees": false
+    }
+  },
+  "feature_selection": {
+    "l1": "nonzero",
+    "huber": "top05"
+  },
+  "foundation": {
+    "chronos": {
+      "repo": "amazon/chronos-2",
+      "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+      "weights_sha256": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+      "config_sha256": "ef1143bfdc9c0376d9a056eefca46cb4b1ec3d0ffacd541ff56feb40fb708031",
+      "models": [
+        {
+          "id": "chronos_c128_news_q50",
+          "context": 128,
+          "multivariate": true,
+          "quantile": 0.5
+        },
+        {
+          "id": "chronos_c128_news_q80",
+          "context": 128,
+          "multivariate": true,
+          "quantile": 0.8
+        },
+        {
+          "id": "chronos_c64_uni_q90",
+          "context": 64,
+          "multivariate": false,
+          "quantile": 0.9
+        }
+      ],
+      "forecast_contexts": [
+        [
+          64,
+          false
+        ],
+        [
+          256,
+          false
+        ],
+        [
+          128,
+          true
+        ]
+      ]
+    },
+    "timesfm": {
+      "repo": "google/timesfm-3.0-pytorch",
+      "revision": "43046b85ec22d584a13f8098c2ed39c889e129c2",
+      "weights_sha256": "a7592b0a8432baee54483254e5647856911ce69e09d09a9bb65904b2d98f17da",
+      "config_sha256": "ff17bbc07b792c5a904cca265b8468579d736a4fe84981da25eb871b0a125bc6",
+      "models": [
+        {
+          "id": "timesfm_c64_uni_q50",
+          "context": 64,
+          "multivariate": false,
+          "quantile": 0.5
+        },
+        {
+          "id": "timesfm_c64_uni_q80",
+          "context": 64,
+          "multivariate": false,
+          "quantile": 0.8
+        },
+        {
+          "id": "timesfm_c64_uni_q90",
+          "context": 64,
+          "multivariate": false,
+          "quantile": 0.9
+        }
+      ],
+      "forecast_contexts": [
+        [
+          64,
+          false
+        ],
+        [
+          256,
+          false
+        ],
+        [
+          128,
+          true
+        ]
+      ]
+    }
+  },
+  "event_models": [
+    {
+      "kind": "lightgbm",
+      "id": "lgb_lags_small_classifier",
+      "features": "lags",
+      "complexity": "small",
+      "target": "classifier",
+      "spike_cutoff": 0.3
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_lags_small_q90",
+      "features": "lags",
+      "complexity": "small",
+      "target": "q90",
+      "spike_cutoff": 1.0
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_core_small_classifier",
+      "features": "core",
+      "complexity": "small",
+      "target": "classifier",
+      "spike_cutoff": 0.3
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_core_regularized_q90",
+      "features": "core",
+      "complexity": "regularized",
+      "target": "q90",
+      "spike_cutoff": 1.0
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_seasonal_small_classifier",
+      "features": "seasonal",
+      "complexity": "small",
+      "target": "classifier",
+      "spike_cutoff": 0.2
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_seasonal_small_q95",
+      "features": "seasonal",
+      "complexity": "small",
+      "target": "q95",
+      "spike_cutoff": 1.0
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_relative_regularized_classifier",
+      "features": "relative",
+      "complexity": "regularized",
+      "target": "classifier",
+      "spike_cutoff": 0.05
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_relative_small_q95",
+      "features": "relative",
+      "complexity": "small",
+      "target": "q95",
+      "spike_cutoff": 1.0
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_full_small_classifier",
+      "features": "full",
+      "complexity": "small",
+      "target": "classifier",
+      "spike_cutoff": 0.15
+    },
+    {
+      "kind": "lightgbm",
+      "id": "lgb_full_regularized_q95",
+      "features": "full",
+      "complexity": "regularized",
+      "target": "q95",
+      "spike_cutoff": 1.0
+    },
+    {
+      "id": "logistic_full_10",
+      "kind": "logistic",
+      "features": "full",
+      "strength": 10,
+      "spike_cutoff": 0.1
+    },
+    {
+      "id": "extra_trees_relative_10",
+      "kind": "extra_trees",
+      "features": "relative",
+      "strength": 10,
+      "spike_cutoff": 0.05
+    },
+    {
+      "id": "random_forest_full_10",
+      "kind": "random_forest",
+      "features": "full",
+      "strength": 10,
+      "spike_cutoff": 0.3
+    },
+    {
+      "id": "knn_full_1",
+      "kind": "knn",
+      "features": "full",
+      "strength": 1,
+      "spike_cutoff": 0.6
+    },
+    {
+      "id": "ridge_relative_10",
+      "kind": "ridge",
+      "features": "relative",
+      "strength": 10,
+      "spike_cutoff": 1.0
+    },
+    {
+      "id": "tree_q90_full_10",
+      "kind": "tree_q90",
+      "features": "full",
+      "strength": 10,
+      "spike_cutoff": 1.0
+    }
+  ],
+  "escalation": {
+    "first_origin": 86,
+    "last_target": "2025-12-29",
+    "refit_every": 4,
+    "min_year_observations": 48,
+    "probability_cutoff": 0.5
+  }
+}

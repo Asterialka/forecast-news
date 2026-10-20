@@ -1,0 +1,24 @@
+{
+  "inputs_sha256": {
+    "data/preprocessed/manifest.json": "0afe9937c2584d17cb7ecd0155c1ea6eff3828d880634bb03612b559b3a374b9",
+    "outputs/metrics.csv": "c5633606bce8c9ac8fa0011652a7514908bbf5a68f32a5318ba896900a4834e9",
+    "outputs/metrics.json": "af9eaa86f7a71672ca05d94237290dffc8df13d1fdbd92e35df3e1a83888dadc",
+    "outputs/forecast.csv": "e3ec326d2ed37f950be7d49110a75df012f691e168db8d2b5956d0598bd5f0e6",
+    "src/plot_results.py": "6eb0ec0f72eed36672d1aee38ce1a94cc75366d0b97750f95ac2784e0fbb020c",
+    "src/arima.py": "001ad482b2bd22a9d91795a995349ca77184ce463015863c4b27a2c5623e4f02",
+    "src/features.py": "0cb580589c856a37cadb91c062417e37973f6714d239c594e0b0bc230907456c"
+  },
+  "matplotlib": "3.11.2",
+  "verification": "ARIMA and baseline holdout RMSE/MAE matched for pooled and h1-h4; final ARIMA forecast matched.",
+  "files_sha256": {
+    "01_history.png": "a705720280abde0ebe2fb10288319bac1d9d242e10230e7d4323b81d39364f33",
+    "01_history.svg": "0c00d4e2e54aec7c6db9f19f1c463825bae79c0ff3c814ec38da906e207fbd07",
+    "02_model_comparison.png": "7e9ea6167e9c253c05073b5db3c3254b69392b02126ae7cb013a4d4e6e2f2337",
+    "02_model_comparison.svg": "6514e9071191af42194d21b7dd5ccdf7f1a859d8126d9a33810491efb1277d88",
+    "03_holdout.png": "18cd05e1b4e15e0ae12122a4599c6049b170a9d15871b9d88210f11c0b816a94",
+    "03_holdout.svg": "962af4257d842218247ea51f88201428d7014e535497cabfef7d9918fc2bb51e",
+    "04_forecast.png": "bc957fe4107ea0e8d33bc4dc1e193a7cf7bf61770c65bcf6e25f7223a02da73f",
+    "04_forecast.svg": "4d645a30825963b723fa09e0fd3b393bd07632093e3dfe46f3ac0e0e93e04d4a",
+    "holdout_predictions.csv": "74e1e4e49ff2737e65e6dfde2326663b6d12ae4557753c46c86a3cd488954052"
+  }
+}
